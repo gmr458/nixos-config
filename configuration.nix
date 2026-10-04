@@ -84,6 +84,13 @@
           delay = lib.gvariant.mkUint32 200;
           repeat-interval = lib.gvariant.mkUint32 31;
         };
+        "org/gnome/desktop/interface" = {
+          font-name = "Roboto 11";
+          document-font-name = "Roboto 11";
+          monospace-font-name = "Iosevka Nerd Font Mono 11";
+          cursor-theme = "Adwaita";
+          cursor-size = lib.gvariant.mkInt32 24;
+        };
       };
     }
   ];
@@ -123,11 +130,17 @@
   environment.sessionVariables = {
     EDITOR = "nvim";
     PNPM_HOME = "$HOME/.local/share/pnpm";
+    XCURSOR_SIZE = "24";
+    XCURSOR_THEME = "Adwaita";
   };
   environment.systemPackages = with pkgs; [
     alacritty
     bat
+    brave
+    brave-origin
+    bruno
     bun
+    calibre
     carapace
     deno
     fastfetch
@@ -137,38 +150,58 @@
     gcc
     git
     go
+    handbrake
     kitty
+    kooha
     lsd
     neovide
     nixfmt
     noctalia
     nodejs
     nushell
+    obsidian
+    odin
     onefetch
     opencode
+    mpv
     pkg-config
     pnpm
     python3
     ripgrep
     rustup
+    spotify
+    sqlitebrowser
     stow
     stylua
     sublime4
+    telegram-desktop
     tokei
     tree-sitter
     vim
+    vlc
     vscodium
     vivid
     wget
     wl-clipboard
+    xnviewmp
   ];
 
   # FONTS
   fonts.packages = with pkgs; [
+    inter
     nerd-fonts.iosevka
     nerd-fonts.symbols-only
     nerd-fonts.zed-mono
+    roboto
   ];
+  fonts.fontconfig = {
+    enable = true;
+    defaultFonts = {
+      sansSerif = [ "Roboto" ];
+      serif = [ "Roboto" ];
+      monospace = [ "Iosevka Nerd Font Mono" ];
+    };
+  };
 
   # SYSTEM
   system.stateVersion = "26.05";
