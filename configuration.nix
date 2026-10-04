@@ -142,18 +142,29 @@
     bun
     calibre
     carapace
+    chromium
     deno
     fastfetch
     fd
+    ffmpeg
     file
     fzf
     gcc
     git
+    gnumake
     go
+    google-chrome
     handbrake
+    imagemagick
+    jq
+    just
+    k6
     kitty
     kooha
     lsd
+    lua
+    luajit
+    mpv
     neovide
     nixfmt
     noctalia
@@ -163,13 +174,14 @@
     odin
     onefetch
     opencode
-    mpv
     pkg-config
     pnpm
+    prettier
     python3
     ripgrep
     rustup
     spotify
+    sqlite
     sqlitebrowser
     stow
     stylua
@@ -177,13 +189,15 @@
     telegram-desktop
     tokei
     tree-sitter
+    unzip
     vim
+    vivid
     vlc
     vscodium
-    vivid
     wget
     wl-clipboard
     xnviewmp
+    yt-dlp
   ];
 
   # FONTS
