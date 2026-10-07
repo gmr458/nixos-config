@@ -110,20 +110,28 @@
   programs.zsh.enable = true;
 
   # BROWSER POLICIES
-  # Helium reads Chromium's policy path, not its own config dir.
   environment.etc."chromium/policies/managed/helium.json".text = builtins.toJSON {
     DefaultSearchProviderEnabled = true;
     DefaultSearchProviderName = "Google";
     DefaultSearchProviderSearchURL = "https://www.google.com/search?q={searchTerms}";
     DefaultSearchProviderSuggestURL = "https://www.google.com/complete/search?client=chrome&q={searchTerms}";
     SearchSuggestEnabled = true;
-
     ExtensionInstallSources = [ "https://services.helium.imput.net/*" ];
     ExtensionInstallForcelist = [
       "nngceckbapebfimnlniiiahkandclblb"
       "aapbdbdomjkkjkaonfhkkikfgjllcleb"
       "dbepggeogbaibhgnhhndojpepiihcmeb"
     ];
+  };
+  environment.etc."opt/chrome/policies/managed/chrome.json".text = builtins.toJSON {
+    DefaultBrowserSettingEnabled = false;
+    MetricsReportingEnabled = false;
+    BrowserSignin = 0;
+  };
+  environment.etc."brave/policies/managed/brave.json".text = builtins.toJSON {
+    DefaultBrowserSettingEnabled = false;
+    MetricsReportingEnabled = false;
+    BraveStatsPingEnabled = false;
   };
 
   # ENVIRONMENT
@@ -136,9 +144,14 @@
   environment.systemPackages = with pkgs; [
     alacritty
     bat
-    brave
-    brave-origin
+    (brave.override {
+      commandLineArgs = "--no-first-run --no-default-browser-check";
+    })
+    (brave-origin.override {
+      commandLineArgs = "--no-first-run --no-default-browser-check";
+    })
     bruno
+    btop
     bun
     calibre
     carapace
@@ -148,12 +161,15 @@
     fd
     ffmpeg
     file
+    foot
     fzf
     gcc
     git
     gnumake
     go
-    google-chrome
+    (google-chrome.override {
+      commandLineArgs = "--no-first-run --no-default-browser-check";
+    })
     handbrake
     imagemagick
     jq
@@ -161,6 +177,7 @@
     k6
     kitty
     kooha
+    kotlin-cli
     lsd
     lua
     luajit
@@ -197,6 +214,53 @@
     wget
     wl-clipboard
     xnviewmp
+    (makeDesktopItem {
+      name = "xnviewmp";
+      desktopName = "XnView Multi Platform";
+      genericName = "XnViewMP";
+      exec = "xnviewmp %F";
+      icon = "xnviewmp";
+      comment = "An efficient multimedia viewer, browser and converter";
+      categories = [
+        "Graphics"
+        "Viewer"
+      ];
+      mimeTypes = [
+        "image/avif"
+        "image/bmp"
+        "image/gif"
+        "image/heic"
+        "image/heif"
+        "image/jp2"
+        "image/jpeg"
+        "image/jxl"
+        "image/png"
+        "image/svg+xml"
+        "image/tiff"
+        "image/vnd.adobe.photoshop"
+        "image/vnd.microsoft.icon"
+        "image/vnd.radiance"
+        "image/webp"
+        "image/x-adobe-dng"
+        "image/x-canon-cr2"
+        "image/x-canon-cr3"
+        "image/x-canon-crw"
+        "image/x-dds"
+        "image/x-exr"
+        "image/x-fuji-raf"
+        "image/x-nikon-nef"
+        "image/x-nikon-nrw"
+        "image/x-olympus-orf"
+        "image/x-panasonic-rw2"
+        "image/x-pentax-pef"
+        "image/x-samsung-srw"
+        "image/x-sony-arw"
+        "image/x-tga"
+        "image/x-xcf"
+
+      ];
+    })
+    xwayland-satellite
     yt-dlp
   ];
 

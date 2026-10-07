@@ -44,14 +44,22 @@
             home-manager.backupFileExtension = "backup";
             home-manager.users.gdmr = import ./home.nix;
           }
-          ({ pkgs, ... }: {
-            nixpkgs.overlays = [ neovim-nightly-overlay.overlays.default ];
-            environment.systemPackages = [
-              ghostty.packages.x86_64-linux.default
-              helium.packages.x86_64-linux.default
-              pkgs.neovim
-            ];
-          })
+          (
+            { pkgs, ... }:
+            let
+              system = pkgs.stdenv.hostPlatform.system;
+            in
+            {
+              nixpkgs.overlays = [
+                neovim-nightly-overlay.overlays.default
+              ];
+              environment.systemPackages = [
+                ghostty.packages.${system}.default
+                helium.packages.${system}.default
+                pkgs.neovim
+              ];
+            }
+          )
         ];
       };
     };
