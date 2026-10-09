@@ -205,6 +205,7 @@
     sublime4
     telegram-desktop
     tokei
+    tree
     tree-sitter
     unzip
     vim
