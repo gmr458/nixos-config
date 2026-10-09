@@ -22,12 +22,23 @@
       "ghostty.cachix.org-1:QB389yTa6gTyneehvqG58y0WnHjQOqgnA+wBnpWWxns="
       "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
     ];
+    trusted-users = [
+      "root"
+      "@wheel"
+    ];
   };
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 14d";
+  };
+  nix.optimise.automatic = true;
   nixpkgs.config.allowUnfree = true;
 
   # BOOT
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader.systemd-boot.configurationLimit = 10;
 
   # NETWORKING
   networking.hostName = "nixos";
