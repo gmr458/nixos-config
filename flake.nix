@@ -4,7 +4,6 @@
 
     ghostty = {
       url = "github:ghostty-org/ghostty";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     helium = {
@@ -14,7 +13,6 @@
 
     neovim-nightly-overlay = {
       url = "github:nix-community/neovim-nightly-overlay";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     home-manager = {
@@ -31,9 +29,10 @@
       neovim-nightly-overlay,
       home-manager,
       ...
-    }:
+    }@inputs:
     {
       nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
+        specialArgs = { inherit inputs; };
         modules = [
           ./configuration.nix
           home-manager.nixosModules.home-manager
@@ -50,13 +49,9 @@
               system = pkgs.stdenv.hostPlatform.system;
             in
             {
-              nixpkgs.overlays = [
-                neovim-nightly-overlay.overlays.default
-              ];
               environment.systemPackages = [
                 ghostty.packages.${system}.default
                 helium.packages.${system}.default
-                pkgs.neovim
               ];
             }
           )

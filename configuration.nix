@@ -1,4 +1,9 @@
-{ pkgs, lib, ... }:
+{
+  pkgs,
+  lib,
+  inputs,
+  ...
+}:
 
 {
   imports = [ ./hardware-configuration.nix ];
@@ -9,8 +14,14 @@
       "nix-command"
       "flakes"
     ];
-    substituters = [ "https://ghostty.cachix.org" ];
-    trusted-public-keys = [ "ghostty.cachix.org-1:QB389yTa6gTyneehvqG58y0WnHjQOqgnA+wBnpWWxns=" ];
+    substituters = [
+      "https://ghostty.cachix.org"
+      "https://nix-community.cachix.org"
+    ];
+    trusted-public-keys = [
+      "ghostty.cachix.org-1:QB389yTa6gTyneehvqG58y0WnHjQOqgnA+wBnpWWxns="
+      "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+    ];
   };
   nixpkgs.config.allowUnfree = true;
 
@@ -105,6 +116,11 @@
       };
     };
   };
+  programs.neovim = {
+    enable = true;
+    defaultEditor = true;
+    package = inputs.neovim-nightly-overlay.packages.${pkgs.stdenv.hostPlatform.system}.default;
+  };
   programs.niri.enable = true;
   programs.nix-ld.enable = true;
   programs.zsh.enable = true;
@@ -136,7 +152,6 @@
 
   # ENVIRONMENT
   environment.sessionVariables = {
-    EDITOR = "nvim";
     PNPM_HOME = "$HOME/.local/share/pnpm";
     XCURSOR_SIZE = "24";
     XCURSOR_THEME = "Adwaita";
