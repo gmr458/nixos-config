@@ -251,40 +251,7 @@
         "Graphics"
         "Viewer"
       ];
-      mimeTypes = [
-        "image/avif"
-        "image/bmp"
-        "image/gif"
-        "image/heic"
-        "image/heif"
-        "image/jp2"
-        "image/jpeg"
-        "image/jxl"
-        "image/png"
-        "image/svg+xml"
-        "image/tiff"
-        "image/vnd.adobe.photoshop"
-        "image/vnd.microsoft.icon"
-        "image/vnd.radiance"
-        "image/webp"
-        "image/x-adobe-dng"
-        "image/x-canon-cr2"
-        "image/x-canon-cr3"
-        "image/x-canon-crw"
-        "image/x-dds"
-        "image/x-exr"
-        "image/x-fuji-raf"
-        "image/x-nikon-nef"
-        "image/x-nikon-nrw"
-        "image/x-olympus-orf"
-        "image/x-panasonic-rw2"
-        "image/x-pentax-pef"
-        "image/x-samsung-srw"
-        "image/x-sony-arw"
-        "image/x-tga"
-        "image/x-xcf"
-
-      ];
+      mimeTypes = import ./mime-images.nix;
     })
     xwayland-satellite
     yt-dlp
