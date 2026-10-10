@@ -57,7 +57,7 @@
     LC_TELEPHONE = "es_CO.UTF-8";
     LC_TIME = "es_CO.UTF-8";
   };
-  console.keyMap = "la-latin1";
+  console.useXkbConfig = true;
   services.xserver.xkb = {
     layout = "latam";
     variant = "";
