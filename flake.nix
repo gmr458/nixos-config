@@ -24,9 +24,6 @@
   outputs =
     {
       nixpkgs,
-      ghostty,
-      helium,
-      neovim-nightly-overlay,
       home-manager,
       ...
     }@inputs:
@@ -34,30 +31,18 @@
       nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs; };
         modules = [
-          ./configuration.nix
+          ./hosts/nixos
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             # stow owns parts of ~/.config; move collisions aside instead of failing.
             home-manager.backupFileExtension = "backup";
-            home-manager.users.gdmr = import ./home.nix;
+            home-manager.users.gdmr = import ./home;
           }
-          (
-            { pkgs, ... }:
-            let
-              system = pkgs.stdenv.hostPlatform.system;
-            in
-            {
-              environment.systemPackages = [
-                ghostty.packages.${system}.default
-                helium.packages.${system}.default
-              ];
-            }
-          )
         ];
       };
 
-      formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixfmt;
+      formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixfmt-tree;
     };
 }
