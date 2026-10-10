@@ -16,11 +16,9 @@
       "flakes"
     ];
     substituters = [
-      "https://ghostty.cachix.org"
       "https://nix-community.cachix.org"
     ];
     trusted-public-keys = [
-      "ghostty.cachix.org-1:QB389yTa6gTyneehvqG58y0WnHjQOqgnA+wBnpWWxns="
       "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
     ];
     trusted-users = [
