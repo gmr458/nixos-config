@@ -17,6 +17,7 @@
     carapace
     chromium
     deno
+    difftastic
     fastfetch
     fd
     ffmpeg
