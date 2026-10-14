@@ -6,6 +6,7 @@
     ../../modules/desktop.nix
     ../../modules/browsers.nix
     ../../modules/packages.nix
+    ../../modules/lsp.nix
     ../../modules/fonts.nix
   ];
 
