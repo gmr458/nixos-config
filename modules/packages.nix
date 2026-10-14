@@ -4,6 +4,7 @@
   environment.systemPackages = with pkgs; [
     alacritty
     bat
+    biome
     (brave.override {
       commandLineArgs = "--no-first-run --no-default-browser-check";
     })
@@ -16,6 +17,7 @@
     calibre
     carapace
     chromium
+    czkawka
     deno
     difftastic
     fastfetch
@@ -29,6 +31,7 @@
     git
     gnumake
     go
+    gofumpt
     (google-chrome.override {
       commandLineArgs = "--no-first-run --no-default-browser-check";
     })
