@@ -28,7 +28,6 @@
     foot
     fzf
     gcc
-    ghostty
     git
     gnumake
     go
@@ -96,6 +95,7 @@
     })
     xwayland-satellite
     yt-dlp
+    inputs.ghostty.packages.${pkgs.stdenv.hostPlatform.system}.default
     inputs.helium.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
 }
