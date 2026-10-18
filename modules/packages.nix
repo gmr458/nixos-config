@@ -20,6 +20,7 @@
     czkawka
     deno
     difftastic
+    dnsutils
     fastfetch
     fd
     ffmpeg
