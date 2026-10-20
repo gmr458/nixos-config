@@ -15,7 +15,7 @@
     btop
     bun
     calibre
-    carapace
+    (pkgs.callPackage ../pkgs/carapace.nix { })
     chromium
     czkawka
     deno
