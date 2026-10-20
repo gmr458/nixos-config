@@ -1,4 +1,9 @@
-{ lib, stdenv, fetchurl, makeWrapper }:
+{
+  lib,
+  stdenv,
+  fetchurl,
+  makeWrapper,
+}:
 
 stdenv.mkDerivation rec {
   pname = "kotlin-lsp";
@@ -15,7 +20,7 @@ stdenv.mkDerivation rec {
   dontBuild = true;
   dontStrip = true; # leave the bundled JBR and native libs alone
 
-    installPhase = ''
+  installPhase = ''
     runHook preInstall
 
     mkdir unpacked
@@ -33,11 +38,17 @@ stdenv.mkDerivation rec {
     runHook postInstall
   '';
 
-    meta = {
+  meta = {
     description = "Kotlin language server by JetBrains";
     homepage = "https://github.com/Kotlin/kotlin-lsp";
-    license = with lib.licenses; [ asl20 unfree ]; # repo is Apache-2.0, binary bundles proprietary parts
-    sourceProvenance = with lib.sourceTypes; [ binaryNativeCode binaryBytecode ];
+    license = with lib.licenses; [
+      asl20
+      unfree
+    ]; # repo is Apache-2.0, binary bundles proprietary parts
+    sourceProvenance = with lib.sourceTypes; [
+      binaryNativeCode
+      binaryBytecode
+    ];
     platforms = [ "x86_64-linux" ];
     mainProgram = "intellij-server";
   };
