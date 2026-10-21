@@ -2,10 +2,7 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
-    ghostty = {
-      url = "github:ghostty-org/ghostty";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    ghostty.url = "github:ghostty-org/ghostty";
 
     helium = {
       url = "github:amaanq/helium-flake";
