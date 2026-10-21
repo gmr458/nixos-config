@@ -14,7 +14,7 @@
     bruno
     btop
     bun
-    calibre
+    # calibre
     (pkgs.callPackage ../pkgs/carapace.nix { })
     chromium
     czkawka
@@ -35,7 +35,7 @@
     (google-chrome.override {
       commandLineArgs = "--no-first-run --no-default-browser-check";
     })
-    handbrake
+    # handbrake
     imagemagick
     jq
     just
