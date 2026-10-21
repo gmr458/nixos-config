@@ -47,7 +47,6 @@
     lua
     luajit
     mpv
-    neovide
     nixfmt
     noctalia
     nodejs
