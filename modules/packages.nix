@@ -14,7 +14,7 @@
     bruno
     btop
     bun
-    (pkgs.callPackage ../pkgs/carapace.nix { })
+    carapace
     chromium
     czkawka
     deno
