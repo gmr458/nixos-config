@@ -8,6 +8,7 @@
         images = [ "xnviewmp.desktop" ];
         video = [ "vlc.desktop" ];
         audio = [ "vlc.desktop" ];
+        ebooks = [ "com.github.johnfactotum.Foliate.desktop" ];
         imageTypes = import ./mime-images.nix;
       in
       lib.genAttrs imageTypes (_: images)
@@ -18,8 +19,13 @@
         "x-scheme-handler/https" = browser;
 
         "application/pdf" = [ "org.gnome.Papers.desktop" ];
-        # "application/epub+zip" = [ "calibre-ebook-viewer.desktop" ];
-        # "application/x-mobipocket-ebook" = [ "calibre-ebook-viewer.desktop" ];
+
+        "application/epub+zip" = ebooks;
+        "application/x-mobipocket-ebook" = ebooks;
+        "application/vnd.amazon.mobi8-ebook" = ebooks;
+        "application/x-fictionbook+xml" = ebooks;
+        "application/x-zip-compressed-fb2" = ebooks;
+        "application/vnd.comicbook+zip" = ebooks;
 
         "video/mp4" = video;
         "video/x-matroska" = video;

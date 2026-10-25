@@ -14,7 +14,6 @@
     bruno
     btop
     bun
-    # calibre
     (pkgs.callPackage ../pkgs/carapace.nix { })
     chromium
     czkawka
@@ -25,6 +24,7 @@
     fd
     ffmpeg
     file
+    foliate
     foot
     fzf
     gcc
