@@ -52,7 +52,10 @@
     noctalia
     nodejs
     nushell
-    obsidian
+    # Electron 43 breaks Obsidian 1.14.5's renderer: `webFrame` fails to
+    # initialize with "Cannot read properties of undefined (reading
+    # 'defineProperty')". Pin to the newest supported Electron for now.
+    (obsidian.override { electron = electron_42; })
     odin
     onefetch
     opencode
