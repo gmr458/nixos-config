@@ -32,6 +32,7 @@
     gnumake
     go
     gofumpt
+    golangci-lint
     (google-chrome.override {
       commandLineArgs = "--no-first-run --no-default-browser-check";
     })
