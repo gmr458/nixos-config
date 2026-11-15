@@ -5,6 +5,7 @@
     alacritty
     bat
     biome
+    bitwarden-desktop
     (brave.override {
       commandLineArgs = "--no-first-run --no-default-browser-check";
     })
@@ -31,6 +32,7 @@
     fzf
     ghostty
     gcc
+    gh
     git
     gnumake
     go_1_27

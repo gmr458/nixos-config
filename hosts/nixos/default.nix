@@ -44,6 +44,22 @@
   networking.networkmanager.enable = true;
   hardware.bluetooth.enable = true;
 
+  networking.firewall.allowedTCPPorts = [
+    3000
+    3001
+    4000
+    4173
+    4200
+    4321
+    5000
+    5001
+    5173
+    5174
+    8000
+    8080
+    49374
+  ];
+
   # LOCALE / TIME / KEYMAP
   time.timeZone = "America/Bogota";
   i18n.defaultLocale = "en_US.UTF-8";

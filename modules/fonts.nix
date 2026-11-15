@@ -4,6 +4,7 @@
   # FONTS
   fonts.packages = with pkgs; [
     inter
+    nerd-fonts.geist-mono
     nerd-fonts.iosevka
     nerd-fonts.symbols-only
     nerd-fonts.zed-mono
