@@ -85,6 +85,7 @@
     isNormalUser = true;
     description = "gdmr";
     extraGroups = [
+      "input"
       "networkmanager"
       "wheel"
     ];

@@ -18,6 +18,7 @@ in
   services.printing.enable = true;
   services.power-profiles-daemon.enable = true;
   services.upower.enable = true;
+  services.flatpak.enable = true;
   services.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
@@ -30,6 +31,8 @@ in
   programs.niri.enable = true;
   programs.nix-ld.enable = true;
   programs.zsh.enable = true;
+  programs.gpu-screen-recorder.enable = true;
+  programs.gpu-screen-recorder.ui.enable = true;
   programs.neovim = {
     enable = true;
     defaultEditor = true;

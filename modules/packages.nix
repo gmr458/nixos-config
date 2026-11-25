@@ -1,4 +1,9 @@
-{ pkgs, inputs, ... }:
+{
+  pkgs,
+  inputs,
+  lib,
+  ...
+}:
 
 {
   environment.systemPackages = with pkgs; [
@@ -23,6 +28,7 @@
     deno
     difftastic
     dnsutils
+    dmidecode
     fastfetch
     fd
     ffmpeg
@@ -35,13 +41,13 @@
     gh
     git
     gnumake
+    gnupg
     go_1_27
     gofumpt
     golangci-lint
     (google-chrome.override {
       commandLineArgs = "--no-first-run --no-default-browser-check";
     })
-    # handbrake
     imagemagick
     jq
     just
@@ -54,6 +60,7 @@
     luajit
     mpv
     nixfmt
+    nixfmt-tree
     noctalia
     nodejs
     nushell
@@ -68,6 +75,7 @@
     python3
     ripgrep
     rustup
+    showmethekey
     spotify
     sqlite
     sqlitebrowser
@@ -78,6 +86,7 @@
     tokei
     tree
     tree-sitter
+    tmux
     unzip
     vim
     vivid
